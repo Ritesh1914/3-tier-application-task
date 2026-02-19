@@ -4,9 +4,10 @@ function App() {
   const [data, setData] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000")
+    fetch(process.env.REACT_APP_API_URL)
       .then((res) => res.text())
-      .then((msg) => setData(msg));
+      .then((msg) => setData(msg))
+      .catch((err) => console.error(err));
   }, []);
 
   return (
@@ -18,3 +19,4 @@ function App() {
 }
 
 export default App;
+
