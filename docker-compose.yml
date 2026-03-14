@@ -106,7 +106,14 @@ services:
       - elasticsearch
     networks:
       - app-network
-
+  
+  node-exporter:
+    image: prom/node-exporter
+    container_name: node_exporter
+    ports:
+      - "9100:9100"
+    networks:
+      - app-network
 
 volumes:
   postgres_data:
